@@ -1,0 +1,181 @@
+.slider2 * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.slider2 body {
+   background: #eaeaea;
+   overflow: hidden;
+}
+
+.slider2 .container {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 1200px;
+   height: 600px;
+   background: #f5f5f5;
+   box-shadow: 0px 30px 50px #dbdbdb;
+   border-radius: 10px;
+}
+
+.slider2 .container .slide .item {
+   width: 200px;
+   height: 300px;
+   position: absolute;
+   top: 80%;
+   transform: translate(0, -50%);
+   border-radius: 20px;
+   box-shadow: 0 30px 50px #505050;
+   background-position: 50% 50%;
+   background-size: cover;
+   display: inline-block;
+   transition: 1.5s;
+}
+
+.slider2 .slide .item:nth-child(1),
+.slider2 .slide .item:nth-child(2) {
+   top: 0;
+   left: 0;
+   transform: translate(0, 0);
+   border-radius: 10px;
+   width: 100%;
+   height: 100%;
+}
+
+.slider2 .slide .item:nth-child(3) {
+   left: 50%;
+}
+
+.slider2 .slide .item:nth-child(4) {
+   left: calc(50% + 220px);
+}
+
+.slider2 .slide .item:nth-child(5) {
+   left: calc(50% + 440px);
+}
+
+/* here n = 0, 1,2,3 .... */
+
+.slider2 .slide .item:nth-child(n + 6) {
+   left: calc(50% + 660px);
+   opacity: 0;
+}
+
+.slider2 .item .content {
+   position: absolute;
+   top: 40%;
+   left: 100px;
+   width: 600px;
+   text-align: left;
+   color: #f0f0f0;
+   transform: translate(0, -50%);
+   display: none;
+}
+
+.slider2 .slide .item:nth-child(2) .content {
+   display: block;
+}
+
+.slider2 .content .name {
+   font-size: 40px;
+   font-weight: bold;
+   opacity: 0;
+   animation: animate 1s ease-in-out forwards;
+   font-family: "Playwrite DE Grund", cursive;
+}
+
+.slider2 .content .des {
+   margin-top: 30px;
+   margin-bottom: 20px;
+   opacity: 0;
+   animation: animate 1s ease-in-out 0.3s forwards;
+   font-family: "Lato", sans-serif;
+}
+
+.slider2 .content button {
+   padding: 10px 20px;
+   border: none;
+   cursor: pointer;
+   border-radius: 10px;
+   opacity: 0;
+   font-weight: 600;
+   color: rgb(69, 69, 69);
+   animation: animate 1s ease-in-out 0.6s forwards;
+   font-family: "Lato", sans-serif;
+}
+
+.slider2 .button {
+   width: 100%;
+   text-align: left;
+   position: absolute;
+   bottom: 20px;
+   left: 90px;
+   z-index: 99;
+}
+
+.slider2 .button button {
+   width: 40px;
+   height: 40px;
+   border: none;
+   border-radius: 100%;
+   cursor: pointer;
+   margin: 0 5px;
+   transition: 0.3s;
+   background: white;
+}
+
+.slider2 .button .prev {
+   background-position: center;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/%3E%3C/svg%3E");
+   background-repeat: no-repeat;
+}
+
+.slider2 .button .next {
+   background-position: center;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+   background-repeat: no-repeat;
+}
+
+
+.slider2 .button button:hover {}
+
+.slider2 .item[for="c1"] {
+   background-image: url("../assets/img7.jpg");
+}
+
+.slider2 .item[for="c2"] {
+   background-image: url("../assets/img2.avif");
+}
+
+.slider2 .item[for="c3"] {
+   background-image: url("../assets/img7.jpg");
+}
+
+.slider2 .item[for="c4"] {
+   background-image: url("../assets/img3.jpg");
+}
+
+.slider2 .item[for="c5"] {
+   background-image: url("../assets/img5.jpg");
+}
+
+.slider2 .item[for="c6"] {
+   background-image: url("../assets/img1.jpg");
+}
+
+@keyframes animate {
+   from {
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
+   }
+}
